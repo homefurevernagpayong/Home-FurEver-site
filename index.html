@@ -4,9 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Home Furever | Nagpayong Stray Animal Rescue</title>
-  <meta name="description" content="Rescuing and rehoming stray animals in Nagpayong, Pasig. Join us in giving them a loving home."/>
+  <meta name="description" content="Protecting stray animals in Nagpayong, Pasig – rescue, care, adopt."/>
   
-  <!-- Google Fonts for appealing, soft look -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Lora:wght@400;500&display=swap" rel="stylesheet">
@@ -15,10 +14,12 @@
     :root {
       --primary: #4a7c59;
       --accent: #e07a5f;
+      --donate: #d32f2f; /* red for donate button */
       --dark: #2d2d2d;
       --light: #fdfaf5;
       --gray: #5c5c5c;
       --overlay: rgba(0,0,0,0.5);
+      --card-bg: rgba(255,255,255,0.9);
     }
     * { margin:0; padding:0; box-sizing:border-box; }
     body {
@@ -27,12 +28,8 @@
       color: var(--dark);
       background: var(--light);
     }
-    h1, h2 {
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
-    }
+    h1, h2 { font-family: 'Playfair Display', serif; font-weight: 700; }
     header {
-      position: relative;
       height: 100vh;
       min-height: 600px;
       background: linear-gradient(var(--overlay), var(--overlay)),
@@ -66,9 +63,14 @@
       margin: 12px;
       display: inline-block;
       transition: all 0.35s;
-      box-shadow: 0 8px 25px rgba(224,122,95,0.4);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
     }
-    .btn:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(224,122,95,0.5); background: #c96a52; }
+    .btn:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.4); }
+    .btn-donate {
+      background: var(--donate);
+      box-shadow: 0 8px 25px rgba(211,47,47,0.4);
+    }
+    .btn-donate:hover { background: #b71c1c; }
     section { padding: 90px 20px; max-width: 1200px; margin: auto; }
     h2 {
       text-align: center;
@@ -83,43 +85,66 @@
       box-shadow: 0 12px 35px rgba(0,0,0,0.08);
       padding: 45px 35px;
       font-size: 1.25rem;
-      text-align: center;
-      max-width: 900px;
+      max-width: 1000px;
       margin: 0 auto;
     }
-    .mission p { margin: 1.5rem 0; }
-    .stats { font-style: italic; color: var(--primary); font-size: 1.4rem; margin: 2.5rem 0; padding: 20px; background: rgba(74,124,89,0.08); border-radius: 16px; }
+    .mission p { margin: 1.4rem 0; }
+    .stats-row, .actions-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+      margin: 3rem 0;
+    }
+    .stat-card, .action-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      padding: 30px 40px;
+      text-align: center;
+      min-width: 220px;
+      flex: 1;
+      max-width: 300px;
+      transition: transform 0.3s;
+    }
+    .stat-card:hover, .action-card:hover { transform: translateY(-10px); }
+    .stat-card h3 { font-size: 2.8rem; color: var(--primary); margin-bottom: 0.5rem; }
+    .stat-card p { font-size: 1.2rem; color: var(--gray); }
+    .action-card a { display: block; height: 100%; text-decoration: none; color: inherit; }
+    .action-card h3 { font-size: 2rem; color: var(--primary); margin-bottom: 1rem; }
     .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 35px;
+      column-count: 3;
+      column-gap: 0;
       margin: 4rem 0;
     }
     .gallery img {
       width: 100%;
-      border-radius: 18px;
-      box-shadow: 0 12px 35px rgba(0,0,0,0.12);
-      transition: transform 0.45s ease, box-shadow 0.45s ease;
+      display: block;
+      margin-bottom: 0;
+      border: none;
+      transition: transform 0.4s;
     }
-    .gallery img:hover { transform: scale(1.07); box-shadow: 0 25px 55px rgba(0,0,0,0.22); }
+    .gallery img:hover { transform: scale(1.05); z-index: 1; }
+    @media (max-width: 900px) { .gallery { column-count: 2; } }
+    @media (max-width: 600px) { .gallery { column-count: 1; } }
     .cta {
       text-align: center;
-      background: linear-gradient(135deg, var(--primary), #3a6a48);
+      background: linear-gradient(135deg, #5a8f6a, #3a6a48);
       color: white;
       padding: 100px 30px;
       border-radius: 32px;
       margin: 60px auto;
       box-shadow: 0 20px 60px rgba(74,124,89,0.35);
     }
-    .cta ul {
-      list-style: none;
-      font-size: 1.35rem;
-      margin: 2.5rem 0;
-      text-align: left;
-      max-width: 700px;
-      margin: 2.5rem auto;
+    .cta-content {
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(8px);
+      border-radius: 20px;
+      padding: 40px;
+      max-width: 900px;
+      margin: 0 auto;
     }
-    .cta li { margin: 1.3rem 0; }
+    .cta h2 { color: white; text-shadow: 0 2px 8px rgba(0,0,0,0.5); }
     .contact-info { margin-top: 3rem; font-size: 1.3rem; }
     .contact-info a { color: white; text-decoration: underline; }
     footer {
@@ -129,13 +154,12 @@
       padding: 70px 20px;
       font-size: 1.15rem;
     }
-    footer p:last-child { font-size: 1.5rem; margin-top: 1.2rem; }
     @media (max-width: 768px) {
       header h1 { font-size: 3.5rem; }
-      header p { font-size: 1.4rem; }
       .hero-content { padding: 35px 20px; }
       section { padding: 70px 15px; }
       h2 { font-size: 2.8rem; }
+      .stats-row, .actions-row { flex-direction: column; }
     }
   </style>
 </head>
@@ -153,52 +177,86 @@
   <section id="about">
     <h2>About Us</h2>
     <div class="mission">
-      <p>Home Furever is a community effort in Nagpayong, Pasig, dedicated to helping stray animals.</p>
-      <p>Many strays face hunger, sickness, and danger every day with no help.</p>
-      <p class="stats">In the Philippines, over 12 million strays struggle on the streets (PAWS estimates, 2024–2025).</p>
-      <p>We rescue them, give medical care and love, then find them responsible, permanent homes.</p>
-      <p>Join us to build a kinder community — one paw at a time.</p>
+      <p>The Project Home FurEver is a community-driven action that has the initiative to protect the vulnerable stray animals within the Nagpayong Community. In many urban areas, stray animals face a daily cycle of hunger, disease, neglect, cruelty, and danger without receiving any form of intervention and protection. This problem is a reflection of a national issue here in the Philippines; according to the Philippine Animal Welfare Society (2025), as of 2024, over 13 million stray animals have been struggling to survive on our streets, left to fend for themselves without basic necessities. Every stray animal will be given the chance to be adopted into a loving and permanent Home FurEver. This project will ensure that no animal will experience any harm, especially in terms of health, medication, and well-being. By fostering care and responsibility, it will perceive and treat its four-legged residents. Moreover, to make this a community-based effort, we invite residents to visit our shelter to witness our love and care for every stray fur and promote a second chance in their lives through local adaptation.</p>
+    </div>
+    
+    <div style="text-align:center; margin:3rem 0;">
+      <a href="https://www.facebook.com/HomeFurEver" target="_blank" class="btn btn-donate">Donate Now</a>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-card">
+        <h3>+50</h3>
+        <p>Rescued</p>
+      </div>
+      <div class="stat-card">
+        <h3>+20</h3>
+        <p>Rehomed</p>
+      </div>
+      <div class="stat-card">
+        <h3>+40</h3>
+        <p>Sheltered</p>
+      </div>
     </div>
   </section>
 
   <section>
     <h2>Our Rescues & Stories</h2>
-    <p style="text-align:center; font-size:1.3rem; color:var(--gray); max-width:900px; margin:0 auto 3rem;">
-      See the hope and healing we bring every day.
-    </p>
-    
     <div class="gallery">
-      <img src="https://i.imgur.com/gcUZj7z.jpg" alt="Rescued animal in care" loading="lazy"/>
-      <img src="https://i.imgur.com/AGRjbGn.jpg" alt="Happy rescued dog" loading="lazy"/>
-      <img src="https://i.imgur.com/1XWnl5A.jpg" alt="Cats at shelter" loading="lazy"/>
-      <img src="https://i.imgur.com/2bEjiTj.jpg" alt="Volunteer with animal" loading="lazy"/>
-      <img src="https://i.imgur.com/JAnrqiE.jpg" alt="Group of rescues" loading="lazy"/>
-      <img src="https://i.imgur.com/36KPwpg.jpg" alt="Healing paws" loading="lazy"/>
-      <img src="https://i.imgur.com/EpLqKPJ.jpg" alt="Playful rescued pets" loading="lazy"/>
-      <img src="https://i.imgur.com/vdVEKts.jpg" alt="Safe and loved" loading="lazy"/>
-      <img src="https://i.imgur.com/o148Nvf.jpg" alt="Adoption moment" loading="lazy"/>
-      <img src="https://i.imgur.com/OQ7ST34.jpg" alt="Community support" loading="lazy"/>
-      <img src="https://i.imgur.com/KncySlQ.jpg" alt="Before & after" loading="lazy"/>
-      <img src="https://i.imgur.com/ssgAd4Y.jpg" alt="Shelter life" loading="lazy"/>
-      <img src="https://i.imgur.com/ni7KUQv.jpg" alt="New home joy" loading="lazy"/>
-      <img src="https://i.imgur.com/u3rSxMb.jpg" alt="Another rescued friend" loading="lazy"/>
+      <img src="https://i.imgur.com/gcUZj7z.jpg" alt="Rescued animal" loading="lazy"/>
+      <img src="https://i.imgur.com/AGRjbGn.jpg" alt="Happy dog" loading="lazy"/>
+      <img src="https://i.imgur.com/1XWnl5A.jpg" alt="Cats" loading="lazy"/>
+      <img src="https://i.imgur.com/2bEjiTj.jpg" alt="Volunteer" loading="lazy"/>
+      <img src="https://i.imgur.com/JAnrqiE.jpg" alt="Group" loading="lazy"/>
+      <img src="https://i.imgur.com/36KPwpg.jpg" alt="Healing" loading="lazy"/>
+      <img src="https://i.imgur.com/EpLqKPJ.jpg" alt="Playful" loading="lazy"/>
+      <img src="https://i.imgur.com/vdVEKts.jpg" alt="Safe" loading="lazy"/>
+      <img src="https://i.imgur.com/o148Nvf.jpg" alt="Adoption" loading="lazy"/>
+      <img src="https://i.imgur.com/OQ7ST34.jpg" alt="Community" loading="lazy"/>
+      <img src="https://i.imgur.com/KncySlQ.jpg" alt="Before after" loading="lazy"/>
+      <img src="https://i.imgur.com/ssgAd4Y.jpg" alt="Shelter" loading="lazy"/>
+      <img src="https://i.imgur.com/ni7KUQv.jpg" alt="Joy" loading="lazy"/>
+      <img src="https://i.imgur.com/u3rSxMb.jpg" alt="Friend" loading="lazy"/>
     </div>
   </section>
 
   <section class="cta" id="contact">
-    <h2>Join Us Today</h2>
-    <p>Visit our shelter, adopt, volunteer, or donate — every bit helps give them a Home Furever.</p>
-    
-    <div class="contact-info">
-      <p><strong>For more information, contact us:</strong></p>
-      <ul>
-        <li>📞 Contact No.: 09604187432</li>
-        <li>✉️ Gmail: <a href="mailto:homefurever.nagpayong@gmail.com">homefurever.nagpayong@gmail.com</a></li>
-        <li>🐾 Official FB Page: <a href="https://www.facebook.com/HomeFurEver" target="_blank">HomeFurEver</a></li>
-      </ul>
+    <div class="cta-content">
+      <h2>Join Us Today</h2>
+      <p>Visit, adopt, volunteer, or donate — help us give them a Home FureVer.</p>
+      
+      <div class="actions-row">
+        <div class="action-card">
+          <a href="https://www.facebook.com/HomeFurEver" target="_blank">
+            <h3>DONATE</h3>
+            <p>Support our mission with a contribution</p>
+          </a>
+        </div>
+        <div class="action-card">
+          <a href="https://www.facebook.com/HomeFurEver" target="_blank">
+            <h3>SPONSOR</h3>
+            <p>Help cover food, meds & care</p>
+          </a>
+        </div>
+        <div class="action-card">
+          <a href="https://www.facebook.com/HomeFurEver" target="_blank">
+            <h3>ADOPT</h3>
+            <p>Open your heart & home</p>
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-info">
+        <p><strong>For more information, contact us:</strong></p>
+        <ul>
+          <li>📞 Contact No.: 09604187432</li>
+          <li>✉️ Gmail: <a href="mailto:homefurever.nagpayong@gmail.com">homefurever.nagpayong@gmail.com</a></li>
+          <li>🐾 Official FB Page: <a href="https://www.facebook.com/HomeFurEver" target="_blank">HomeFurEver</a></li>
+        </ul>
+      </div>
+      
+      <a href="https://www.facebook.com/HomeFurEver" target="_blank" class="btn" style="background:white; color:var(--primary);">Message Us on Facebook</a>
     </div>
-    
-    <a href="https://www.facebook.com/HomeFurEver" target="_blank" class="btn" style="background:white; color:var(--primary);">Message Us on Facebook</a>
   </section>
 
   <footer>
