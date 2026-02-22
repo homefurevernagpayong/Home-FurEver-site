@@ -3,266 +3,319 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Home Furever | Nagpayong Stray Animal Rescue</title>
-  <meta name="description" content="Protecting stray animals in Nagpayong, Pasig – rescue, care, adopt."/>
-  
+  <title>Home FurEver – Pet Adoption</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Lora:wght@400;500&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
-    :root {
-      --primary: #4a7c59;
-      --accent: #e07a5f;
-      --donate: #d32f2f; /* red for donate button */
-      --dark: #2d2d2d;
-      --light: #fdfaf5;
-      --gray: #5c5c5c;
-      --overlay: rgba(0,0,0,0.5);
-      --card-bg: rgba(255,255,255,0.9);
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    * { margin:0; padding:0; box-sizing:border-box; }
     body {
-      font-family: 'Lora', Georgia, serif;
-      line-height: 1.8;
-      color: var(--dark);
-      background: var(--light);
+      font-family: 'Poppins', sans-serif;
+      background: #fdfaf5;
+      color: #333;
+      line-height: 1.6;
     }
-    h1, h2 { font-family: 'Playfair Display', serif; font-weight: 700; }
+
+    /* Header / Hero */
     header {
+      position: relative;
       height: 100vh;
-      min-height: 600px;
-      background: linear-gradient(var(--overlay), var(--overlay)),
-                  url('https://i.imgur.com/RJLcI6F.jpg') center/cover no-repeat fixed;
-      color: white;
+      min-height: 680px;
+      background: linear-gradient(135deg, #ffe8d6 0%, #f8d7da 100%);
+      overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       padding: 0 20px;
     }
+
     .hero-content {
-      max-width: 850px;
-      padding: 40px 25px;
-      border-radius: 20px;
-      background: rgba(0,0,0,0.25);
-      backdrop-filter: blur(5px);
-      animation: fadeIn 1.8s ease;
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
     }
-    @keyframes fadeIn { from { opacity:0; transform:translateY(40px); } to { opacity:1; transform:translateY(0); } }
-    header h1 { font-size: 4.8rem; margin-bottom: 1rem; text-shadow: 0 4px 15px rgba(0,0,0,0.7); }
-    header p { font-size: 1.7rem; margin-bottom: 2.5rem; text-shadow: 0 2px 10px rgba(0,0,0,0.6); }
-    .btn {
-      background: var(--accent);
-      color: white;
-      padding: 16px 38px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-size: 1.3rem;
-      font-weight: 600;
-      margin: 12px;
-      display: inline-block;
-      transition: all 0.35s;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+
+    .hero-title {
+      font-size: clamp(3.5rem, 9vw, 7.5rem);
+      font-weight: 700;
+      color: #4a2c0d;
+      margin-bottom: 0.2em;
+      letter-spacing: -1px;
+      text-shadow: 0 4px 12px rgba(74,44,13,0.15);
     }
-    .btn:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.4); }
-    .btn-donate {
-      background: var(--donate);
-      box-shadow: 0 8px 25px rgba(211,47,47,0.4);
+
+    .hero-subtitle {
+      font-size: clamp(1.3rem, 4vw, 2rem);
+      color: #6b4e31;
+      margin-bottom: 2.5rem;
+      font-weight: 500;
     }
-    .btn-donate:hover { background: #b71c1c; }
-    section { padding: 90px 20px; max-width: 1200px; margin: auto; }
-    h2 {
-      text-align: center;
-      font-size: 3.4rem;
-      margin-bottom: 1.8rem;
-      color: var(--primary);
-    }
-    h2::after { content:''; width:90px; height:5px; background:var(--accent); display:block; margin:20px auto; border-radius:3px; }
-    .mission {
-      background: white;
-      border-radius: 24px;
-      box-shadow: 0 12px 35px rgba(0,0,0,0.08);
-      padding: 45px 35px;
-      font-size: 1.25rem;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-    .mission p { margin: 1.4rem 0; }
-    .stats-row, .actions-row {
+
+    .cta-buttons {
       display: flex;
       flex-wrap: wrap;
+      gap: 1.2rem;
       justify-content: center;
-      gap: 25px;
-      margin: 3rem 0;
     }
-    .stat-card, .action-card {
-      background: var(--card-bg);
-      border-radius: 16px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-      padding: 30px 40px;
-      text-align: center;
-      min-width: 220px;
-      flex: 1;
-      max-width: 300px;
-      transition: transform 0.3s;
+
+    .btn {
+      display: inline-block;
+      padding: 0.95rem 2.2rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
     }
-    .stat-card:hover, .action-card:hover { transform: translateY(-10px); }
-    .stat-card h3 { font-size: 2.8rem; color: var(--primary); margin-bottom: 0.5rem; }
-    .stat-card p { font-size: 1.2rem; color: var(--gray); }
-    .action-card a { display: block; height: 100%; text-decoration: none; color: inherit; }
-    .action-card h3 { font-size: 2rem; color: var(--primary); margin-bottom: 1rem; }
-    .gallery {
-      column-count: 3;
-      column-gap: 0;
-      margin: 4rem 0;
+
+    .btn-adopt   { background: #ff6b6b; color: white; }
+    .btn-donate  { background: #4ecdc4; color: white; }
+    .btn-sponsor { background: #45b7d1; color: white; }
+
+    .btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.18);
     }
-    .gallery img {
+
+    /* Big outline dog + house */
+    .hero-bg-svg {
+      position: absolute;
+      inset: 0;
       width: 100%;
-      display: block;
-      margin-bottom: 0;
-      border: none;
-      transition: transform 0.4s;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.18;
     }
-    .gallery img:hover { transform: scale(1.05); z-index: 1; }
-    @media (max-width: 900px) { .gallery { column-count: 2; } }
-    @media (max-width: 600px) { .gallery { column-count: 1; } }
-    .cta {
+
+    /* Gallery section */
+    #pets {
+      padding: 5rem 5%;
+      background: white;
+    }
+
+    h2 {
       text-align: center;
-      background: linear-gradient(135deg, #5a8f6a, #3a6a48);
-      color: white;
-      padding: 100px 30px;
-      border-radius: 32px;
-      margin: 60px auto;
-      box-shadow: 0 20px 60px rgba(74,124,89,0.35);
+      font-size: 2.8rem;
+      margin-bottom: 3.5rem;
+      color: #4a2c0d;
     }
-    .cta-content {
-      background: rgba(255,255,255,0.15);
-      backdrop-filter: blur(8px);
-      border-radius: 20px;
-      padding: 40px;
-      max-width: 900px;
+
+    .pet-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2.2rem;
+      max-width: 1200px;
       margin: 0 auto;
     }
-    .cta h2 { color: white; text-shadow: 0 2px 8px rgba(0,0,0,0.5); }
-    .contact-info { margin-top: 3rem; font-size: 1.3rem; }
-    .contact-info a { color: white; text-decoration: underline; }
-    footer {
-      background: var(--dark);
-      color: white;
-      text-align: center;
-      padding: 70px 20px;
-      font-size: 1.15rem;
+
+    .pet-card {
+      background: white;
+      border-radius: 1.1rem;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
     }
-    @media (max-width: 768px) {
-      header h1 { font-size: 3.5rem; }
-      .hero-content { padding: 35px 20px; }
-      section { padding: 70px 15px; }
-      h2 { font-size: 2.8rem; }
-      .stats-row, .actions-row { flex-direction: column; }
+
+    .pet-card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 20px 45px rgba(0,0,0,0.14);
+    }
+
+    .pet-img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      border-bottom: 6px solid #ffe8d6;
+      border-top-left-radius: 1.1rem;
+      border-top-right-radius: 1.1rem;
+    }
+
+    .pet-name {
+      padding: 1.4rem 1.2rem;
+      font-size: 1.4rem;
+      font-weight: 600;
+      text-align: center;
+      color: #4a2c0d;
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.65);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-content {
+      background: white;
+      max-width: 520px;
+      width: 100%;
+      border-radius: 1.2rem;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 2.2rem;
+      color: #777;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .modal-img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+    }
+
+    .modal-body {
+      padding: 1.8rem 2rem 2.2rem;
+    }
+
+    .modal-title {
+      font-size: 2rem;
+      margin-bottom: 0.8rem;
+      color: #4a2c0d;
+    }
+
+    .modal-info p {
+      margin: 0.9rem 0;
+      font-size: 1.05rem;
+    }
+
+    .modal-info strong {
+      color: #ff6b6b;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <div class="hero-content">
-      <h1>Home Furever</h1>
-      <p>Giving stray animals in Nagpayong a second chance at love and a forever home.</p>
-      <a href="#about" class="btn">Learn More</a>
-      <a href="#contact" class="btn">Get Involved</a>
-    </div>
-  </header>
+<header>
+  <svg class="hero-bg-svg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+    <g fill="none" stroke="#5a3f1f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Simple house outline -->
+      <path d="M300 650 L300 350 L600 200 L900 350 L900 650 Z M600 200 L600 100" />
+      <!-- Door -->
+      <rect x="520" y="480" width="160" height="170" rx="8"/>
+      <!-- Window left -->
+      <rect x="360" y="420" width="120" height="140" rx="10"/>
+      <!-- Window right -->
+      <rect x="720" y="420" width="120" height="140" rx="10"/>
+      <!-- Chimney -->
+      <path d="M780 280 L780 180 L820 180 L820 320 Z"/>
+      
+      <!-- Cute dog sitting in front (outline only) -->
+      <g transform="translate(480,520) scale(1.1)">
+        <!-- Body -->
+        <ellipse cx="120" cy="100" rx="90" ry="70"/>
+        <!-- Head -->
+        <circle cx="220" cy="60" r="55"/>
+        <!-- Ears -->
+        <path d="M180 20 Q160 -30 130 10"/>
+        <path d="M260 20 Q280 -30 310 10"/>
+        <!-- Snout -->
+        <ellipse cx="270" cy="75" rx="28" ry="20"/>
+        <!-- Eye -->
+        <circle cx="245" cy="50" r="8"/>
+        <!-- Tail -->
+        <path d="M40 110 Q-20 140 -10 180 Q0 220 30 210"/>
+      </g>
+    </g>
+  </svg>
 
-  <section id="about">
-    <h2>About Us</h2>
-    <div class="mission">
-      <p>The Project Home FurEver is a community-driven action that has the initiative to protect the vulnerable stray animals within the Nagpayong Community. In many urban areas, stray animals face a daily cycle of hunger, disease, neglect, cruelty, and danger without receiving any form of intervention and protection. This problem is a reflection of a national issue here in the Philippines; according to the Philippine Animal Welfare Society (2025), as of 2024, over 13 million stray animals have been struggling to survive on our streets, left to fend for themselves without basic necessities. Every stray animal will be given the chance to be adopted into a loving and permanent Home FurEver. This project will ensure that no animal will experience any harm, especially in terms of health, medication, and well-being. By fostering care and responsibility, it will perceive and treat its four-legged residents. Moreover, to make this a community-based effort, we invite residents to visit our shelter to witness our love and care for every stray fur and promote a second chance in their lives through local adaptation.</p>
-    </div>
+  <div class="hero-content">
+    <h1 class="hero-title">Home FurEver</h1>
+    <p class="hero-subtitle">Find your forever friend • Give a loving home today</p>
     
-    <div style="text-align:center; margin:3rem 0;">
-      <a href="https://www.facebook.com/HomeFurEver" target="_blank" class="btn btn-donate">Donate Now</a>
+    <div class="cta-buttons">
+      <a href="#pets" class="btn btn-adopt">Adopt Now</a>
+      <a href="#" class="btn btn-donate">Donate</a>
+      <a href="#" class="btn btn-sponsor">Sponsor</a>
     </div>
+  </div>
+</header>
 
-    <div class="stats-row">
-      <div class="stat-card">
-        <h3>+50</h3>
-        <p>Rescued</p>
-      </div>
-      <div class="stat-card">
-        <h3>+20</h3>
-        <p>Rehomed</p>
-      </div>
-      <div class="stat-card">
-        <h3>+40</h3>
-        <p>Sheltered</p>
-      </div>
+<section id="pets">
+  <h2>Meet Our Friends Looking for a Home</h2>
+  
+  <div class="pet-grid" id="petGrid"></div>
+</section>
+
+<!-- Modal -->
+<div class="modal" id="petModal">
+  <div class="modal-content">
+    <span class="modal-close" id="closeModal">&times;</span>
+    <img src="" alt="Pet" class="modal-img" id="modalImg">
+    <div class="modal-body">
+      <h2 class="modal-title" id="modalName"></h2>
+      <div class="modal-info" id="modalInfo"></div>
     </div>
-  </section>
+  </div>
+</div>
 
-  <section>
-    <h2>Our Rescues & Stories</h2>
-    <div class="gallery">
-      <img src="https://i.imgur.com/gcUZj7z.jpg" alt="Rescued animal" loading="lazy"/>
-      <img src="https://i.imgur.com/AGRjbGn.jpg" alt="Happy dog" loading="lazy"/>
-      <img src="https://i.imgur.com/1XWnl5A.jpg" alt="Cats" loading="lazy"/>
-      <img src="https://i.imgur.com/2bEjiTj.jpg" alt="Volunteer" loading="lazy"/>
-      <img src="https://i.imgur.com/JAnrqiE.jpg" alt="Group" loading="lazy"/>
-      <img src="https://i.imgur.com/36KPwpg.jpg" alt="Healing" loading="lazy"/>
-      <img src="https://i.imgur.com/EpLqKPJ.jpg" alt="Playful" loading="lazy"/>
-      <img src="https://i.imgur.com/vdVEKts.jpg" alt="Safe" loading="lazy"/>
-      <img src="https://i.imgur.com/o148Nvf.jpg" alt="Adoption" loading="lazy"/>
-      <img src="https://i.imgur.com/OQ7ST34.jpg" alt="Community" loading="lazy"/>
-      <img src="https://i.imgur.com/KncySlQ.jpg" alt="Before after" loading="lazy"/>
-      <img src="https://i.imgur.com/ssgAd4Y.jpg" alt="Shelter" loading="lazy"/>
-      <img src="https://i.imgur.com/ni7KUQv.jpg" alt="Joy" loading="lazy"/>
-      <img src="https://i.imgur.com/u3rSxMb.jpg" alt="Friend" loading="lazy"/>
-    </div>
-  </section>
+<script>
+// Sample pets (you can replace photos with real URLs)
+const pets = [
+  { name: "Luna", age: "2 years", breed: "Mixed", gender: "Female", size: "Medium", desc: "Sweet girl who loves belly rubs and long walks.", photo: "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=600" },
+  { name: "Milo", age: "8 months", breed: "Shiba Inu mix", gender: "Male", size: "Small", desc: "Playful zoomies master looking for an active family.", photo: "https://images.unsplash.com/photo-1617890686219-509e671a27c6?w=600" },
+  { name: "Bella", age: "4 years", breed: "Labrador", gender: "Female", size: "Large", desc: "Calm and gentle – perfect couch companion.", photo: "https://images.unsplash.com/photo-1591160690555-5debfba289f0?w=600" },
+  { name: "Charlie", age: "1.5 years", breed: "Beagle", gender: "Male", size: "Medium", desc: "Food-motivated detective with the cutest howl.", photo: "https://images.unsplash.com/photo-1561037404-61cd46aa615b?w=600" },
+  { name: "Nala", age: "3 years", breed: "Pit Bull mix", gender: "Female", size: "Medium", desc: "Loyal, cuddly and full of kisses.", photo: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600" },
+  { name: "Leo", age: "6 months", breed: "Tabby mix", gender: "Male", size: "Small", desc: "Kitten energy ×1000 – loves feather toys!", photo: "https://images.unsplash.com/photo-1615789591457-74a633511e38?w=600" }
+];
 
-  <section class="cta" id="contact">
-    <div class="cta-content">
-      <h2>Join Us Today</h2>
-      <p>Visit, adopt, volunteer, or donate — help us give them a Home FureVer.</p>
-      
-      <div class="actions-row">
-        <div class="action-card">
-          <a href="https://www.facebook.com/HomeFurEver" target="_blank">
-            <h3>DONATE</h3>
-            <p>Support our mission with a contribution</p>
-          </a>
-        </div>
-        <div class="action-card">
-          <a href="https://www.facebook.com/HomeFurEver" target="_blank">
-            <h3>SPONSOR</h3>
-            <p>Help cover food, meds & care</p>
-          </a>
-        </div>
-        <div class="action-card">
-          <a href="https://www.facebook.com/HomeFurEver" target="_blank">
-            <h3>ADOPT</h3>
-            <p>Open your heart & home</p>
-          </a>
-        </div>
-      </div>
+const grid = document.getElementById("petGrid");
+const modal = document.getElementById("petModal");
+const modalImg = document.getElementById("modalImg");
+const modalName = document.getElementById("modalName");
+const modalInfo = document.getElementById("modalInfo");
+const closeBtn = document.getElementById("closeModal");
 
-      <div class="contact-info">
-        <p><strong>For more information, contact us:</strong></p>
-        <ul>
-          <li>📞 Contact No.: 09604187432</li>
-          <li>✉️ Gmail: <a href="mailto:homefurever.nagpayong@gmail.com">homefurever.nagpayong@gmail.com</a></li>
-          <li>🐾 Official FB Page: <a href="https://www.facebook.com/HomeFurEver" target="_blank">HomeFurEver</a></li>
-        </ul>
-      </div>
-      
-      <a href="https://www.facebook.com/HomeFurEver" target="_blank" class="btn" style="background:white; color:var(--primary);">Message Us on Facebook</a>
-    </div>
-  </section>
+pets.forEach(pet => {
+  const card = document.createElement("div");
+  card.className = "pet-card";
+  card.innerHTML = `
+    <img src="\( {pet.photo}" alt=" \){pet.name}" class="pet-img">
+    <div class="pet-name">${pet.name}</div>
+  `;
+  card.onclick = () => {
+    modalImg.src = pet.photo;
+    modalName.textContent = pet.name;
+    modalInfo.innerHTML = `
+      <p><strong>Age:</strong> ${pet.age}</p>
+      <p><strong>Breed:</strong> ${pet.breed}</p>
+      <p><strong>Gender:</strong> ${pet.gender}</p>
+      <p><strong>Size:</strong> ${pet.size}</p>
+      <p><strong>About:</strong> ${pet.desc}</p>
+    `;
+    modal.style.display = "flex";
+  };
+  grid.appendChild(card);
+});
 
-  <footer>
-    <p>&copy; 2026 Home Furever – Nagpayong Stray Animal Protection</p>
-    <p>Every stray deserves love and a forever home. 💚🐾</p>
-  </footer>
+// Close modal
+closeBtn.onclick = () => modal.style.display = "none";
+modal.onclick = (e) => {
+  if (e.target === modal) modal.style.display = "none";
+};
+</script>
 
 </body>
 </html>
