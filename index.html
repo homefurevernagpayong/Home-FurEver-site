@@ -18,9 +18,10 @@
       --dark: #2d2d2d;
       --light: #fdfaf5;
       --gray: #5c5c5c;
-      --overlay: rgba(0,0,0,0.4);
-      --card-bg: rgba(255,255,255,0.92);
-      --text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+      --overlay: rgba(0,0,0,0.35);
+      --card-bg: rgba(255,255,255,0.95);
+      --action-bg: rgba(74,124,89,0.9);
+      --text-shadow: 0 2px 10px rgba(0,0,0,0.7);
     }
     * { margin:0; padding:0; box-sizing:border-box; }
     body {
@@ -32,92 +33,100 @@
     h1, h2 { font-family: 'Playfair Display', serif; font-weight: 700; }
     header {
       height: 100vh;
-      min-height: 600px;
-      background: linear-gradient(var(--overlay), var(--overlay)), #f0f7f2; /* soft green bg fallback */
+      min-height: 680px;
+      background: linear-gradient(var(--overlay), var(--overlay)), #e8f5e9; /* very soft green fallback */
       color: white;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       position: relative;
-      overflow: hidden;
     }
-    .hero-svg {
+    .hero-svg-container {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 70%;
-      max-width: 500px;
-      opacity: 0.9;
+      width: 80%;
+      max-width: 550px;
       z-index: 1;
+      opacity: 0.95;
     }
     .hero-content {
       position: relative;
       z-index: 2;
-      max-width: 900px;
-      padding: 40px;
+      max-width: 950px;
+      padding: 40px 20px;
     }
     header h1 {
-      font-size: 5.5rem;
-      margin-bottom: 1rem;
+      font-size: 6rem;
+      margin-bottom: 1.2rem;
       text-shadow: var(--text-shadow);
-      color: #fff;
+      letter-spacing: 2px;
     }
     header p {
-      font-size: 1.9rem;
-      margin-bottom: 2.5rem;
+      font-size: 2rem;
+      margin-bottom: 3rem;
       text-shadow: var(--text-shadow);
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
     }
     .btn {
       background: var(--accent);
       color: white;
-      padding: 16px 38px;
+      padding: 18px 42px;
       border-radius: 50px;
       text-decoration: none;
-      font-size: 1.3rem;
-      font-weight: 600;
-      margin: 12px;
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin: 15px;
       display: inline-block;
-      transition: all 0.35s;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+      transition: all 0.4s;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
     }
-    .btn:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.4); }
-    .btn-donate { background: var(--donate); box-shadow: 0 8px 25px rgba(211,47,47,0.4); }
+    .btn:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(0,0,0,0.45); }
+    .btn-donate { background: var(--donate); box-shadow: 0 10px 30px rgba(211,47,47,0.45); }
     .btn-donate:hover { background: #b71c1c; }
-    section { padding: 90px 20px; max-width: 1200px; margin: auto; }
+    section { padding: 100px 20px; max-width: 1200px; margin: auto; }
     h2 {
       text-align: center;
-      font-size: 3.4rem;
-      margin-bottom: 1.8rem;
+      font-size: 3.6rem;
+      margin-bottom: 2rem;
       color: var(--primary);
     }
-    h2::after { content:''; width:90px; height:5px; background:var(--accent); display:block; margin:20px auto; border-radius:3px; }
-    .mission { background: white; border-radius: 24px; box-shadow: 0 12px 35px rgba(0,0,0,0.08); padding: 45px 35px; font-size: 1.25rem; max-width: 1000px; margin: 0 auto; }
-    .mission p { margin: 1.4rem 0; }
-    .stats-row, .actions-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; margin: 3rem 0; }
+    h2::after { content:''; width:100px; height:5px; background:var(--accent); display:block; margin:25px auto; border-radius:3px; }
+    .mission { background: white; border-radius: 28px; box-shadow: 0 14px 40px rgba(0,0,0,0.09); padding: 50px 40px; font-size: 1.3rem; max-width: 1100px; margin: 0 auto; }
+    .mission p { margin: 1.6rem 0; }
+    .stats-row, .actions-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin: 3.5rem 0; }
     .stat-card, .action-card {
       background: var(--card-bg);
-      border-radius: 16px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-      padding: 30px 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+      padding: 35px 45px;
       text-align: center;
-      min-width: 220px;
+      min-width: 240px;
       flex: 1;
-      max-width: 300px;
-      transition: transform 0.3s;
+      max-width: 320px;
+      transition: transform 0.35s;
       color: var(--dark);
-      font-weight: 600;
-      text-shadow: 0 1px 4px rgba(0,0,0,0.2);
+      font-weight: 700;
+      text-shadow: 0 1px 5px rgba(0,0,0,0.15);
     }
-    .action-card { color: white; background: rgba(74,124,89,0.85); }
-    .action-card:hover, .stat-card:hover { transform: translateY(-10px); }
+    .action-card {
+      background: var(--action-bg);
+      color: white;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+    }
+    .action-card h3 { font-size: 2.4rem; margin-bottom: 1rem; }
+    .action-card p { font-size: 1.2rem; opacity: 0.95; }
     .action-card a { color: white; text-decoration: none; display: block; height: 100%; }
-    .action-card h3 { font-size: 2.2rem; margin-bottom: 0.8rem; text-shadow: 0 2px 6px rgba(0,0,0,0.5); }
+    .stat-card h3 { font-size: 3.2rem; color: var(--primary); margin-bottom: 0.6rem; }
+    .stat-card p { font-size: 1.3rem; color: var(--gray); }
     .gallery {
       column-count: 3;
       column-gap: 0;
-      margin: 4rem 0;
+      margin: 4.5rem 0;
     }
     .gallery-item {
       position: relative;
@@ -128,243 +137,47 @@
     .gallery-item img {
       width: 100%;
       display: block;
-      border-radius: 24px; /* rounded corners */
-      transition: transform 0.4s;
+      border-radius: 28px; /* softer rounded corners */
+      transition: transform 0.45s ease;
     }
-    .gallery-item:hover img { transform: scale(1.05); }
+    .gallery-item:hover img { transform: scale(1.06); }
     .gallery-label {
       position: absolute;
-      bottom: 15px;
-      left: 15px;
-      background: rgba(0,0,0,0.6);
+      bottom: 18px;
+      left: 18px;
+      background: rgba(0,0,0,0.65);
       color: white;
-      padding: 8px 16px;
-      border-radius: 30px;
-      font-size: 1.1rem;
+      padding: 10px 20px;
+      border-radius: 40px;
+      font-size: 1.2rem;
       font-weight: 600;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
     }
-    /* Modal */
     .modal {
       display: none;
       position: fixed;
       z-index: 1000;
       left: 0; top: 0;
       width: 100%; height: 100%;
-      background: rgba(0,0,0,0.7);
+      background: rgba(0,0,0,0.75);
       align-items: center;
       justify-content: center;
     }
     .modal-content {
       background: white;
-      padding: 30px;
-      border-radius: 20px;
-      max-width: 500px;
+      padding: 35px;
+      border-radius: 24px;
+      max-width: 520px;
       text-align: center;
-      position: relative;
+      box-shadow: 0 15px 50px rgba(0,0,0,0.4);
     }
-    .close { position: absolute; top: 10px; right: 20px; font-size: 2rem; cursor: pointer; color: #aaa; }
-    .close:hover { color: #000; }
+    .close { position: absolute; top: 15px; right: 25px; font-size: 2.5rem; cursor: pointer; color: #888; }
+    .close:hover { color: #333; }
     .cta {
       text-align: center;
       background: linear-gradient(135deg, #5a8f6a, #3a6a48);
       color: white;
-      padding: 100px 30px;
-      border-radius: 32px;
-      margin: 60px auto;
-      box-shadow: 0 20px 60px rgba(74,124,89,0.35);
-    }
-    .cta-content {
-      background: rgba(255,255,255,0.18);
-      backdrop-filter: blur(10px);
-      border-radius: 24px;
-      padding: 50px;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-    .contact-info { margin-top: 3rem; font-size: 1.3rem; }
-    .contact-info a { color: white; text-decoration: underline; }
-    footer { background: var(--dark); color: white; text-align: center; padding: 70px 20px; font-size: 1.15rem; }
-    @media (max-width: 900px) { .gallery { column-count: 2; } }
-    @media (max-width: 600px) { .gallery { column-count: 1; } header h1 { font-size: 4rem; } }
-  </style>
-</head>
-<body>
-
-  <header>
-    <!-- Cute outline dog house SVG (public domain style from Icons8/SVGRepo) -->
-    <svg class="hero-svg" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-      <path d="M256 32 L480 192 L480 480 L32 480 L32 192 Z" fill="none" stroke="#fff" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
-      <circle cx="256" cy="300" r="80" fill="none" stroke="#fff" stroke-width="20"/>
-      <path d="M200 240 L312 240" stroke="#fff" stroke-width="20" stroke-linecap="round"/>
-      <path d="M240 360 Q256 380 272 360" stroke="#fff" stroke-width="16" fill="none"/>
-    </svg>
-    <div class="hero-content">
-      <h1>Home FurEver</h1>
-      <p>A safe haven where stray hearts find their forever home in Nagpayong</p>
-      <a href="#about" class="btn">Discover More</a>
-      <a href="#contact" class="btn">Join the Family</a>
-    </div>
-  </header>
-
-  <section id="about">
-    <h2>About Us</h2>
-    <div class="mission">
-      <p>The Project Home FurEver is a community-driven action that has the initiative to protect the vulnerable stray animals within the Nagpayong Community. In many urban areas, stray animals face a daily cycle of hunger, disease, neglect, cruelty, and danger without receiving any form of intervention and protection. This problem is a reflection of a national issue here in the Philippines; according to the Philippine Animal Welfare Society (2025), as of 2024, over 13 million stray animals have been struggling to survive on our streets, left to fend for themselves without basic necessities. Every stray animal will be given the chance to be adopted into a loving and permanent Home FurEver. This project will ensure that no animal will experience any harm, especially in terms of health, medication, and well-being. By fostering care and responsibility, it will perceive and treat its four-legged residents. Moreover, to make this a community-based effort, we invite residents to visit our shelter to witness our love and care for every stray fur and promote a second chance in their lives through local adaptation.</p>
-    </div>
-    
-    <div style="text-align:center; margin:3rem 0;">
-      <a href="https://www.facebook.com/HomeFurEver" target="_blank" class="btn btn-donate">Donate Now</a>
-    </div>
-
-    <div class="stats-row">
-      <div class="stat-card">
-        <h3>+50</h3>
-        <p>Rescued</p>
-      </div>
-      <div class="stat-card">
-        <h3>+20</h3>
-        <p>Rehomed</p>
-      </div>
-      <div class="stat-card">
-        <h3>+40</h3>
-        <p>Sheltered</p>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <h2>Meet Our Furry Friends</h2>
-    <div class="gallery">
-      <div class="gallery-item" onclick="showModal('Buddy', 'Mixed breed, 2 years old. Found on the streets, now loves belly rubs and long walks.')">
-        <img src="https://i.imgur.com/gcUZj7z.jpg" alt="Buddy" loading="lazy"/>
-        <div class="gallery-label">Buddy</div>
-      </div>
-      <div class="gallery-item" onclick="showModal('Luna', 'Aspen mix, 1 year. Super playful, great with kids.')">
-        <img src="https://i.imgur.com/AGRjbGn.jpg" alt="Luna" loading="lazy"/>
-        <div class="gallery-label">Luna</div>
-      </div>
-      <div class="gallery-item" onclick="showModal('Milo', 'Tabby cat, 3 years. Loves naps in sunbeams.')">
-        <img src="https://i.imgur.com/1XWnl5A.jpg" alt="Milo" loading="lazy"/>
-        <div class="gallery-label">Milo</div>
-      </div>
-      <!-- Add more as needed; random names/info for demo -->
-      <div class="gallery-item" onclick="showModal('Bella', 'Labrador mix, 4 years. Loyal and gentle giant.')">
-        <img src="https://i.imgur.com/2bEjiTj.jpg" alt="Bella" loading="lazy"/>
-        <div class="gallery-label">Bella</div>
-      </div>
-      <div class="gallery-item" onclick="showModal('Max', 'Shih Tzu, 5 years. King of cuddles.')">
-        <img src="https://i.imgur.com/JAnrqiE.jpg" alt="Max" loading="lazy"/>
-        <div class="gallery-label">Max</div>
-      </div>
-      <div class="gallery-item" onclick="showModal('Coco', 'Persian cat, 2 years. Fluffy and sassy.')">
-        <img src="https://i.imgur.com/36KPwpg.jpg" alt="Coco" loading="lazy"/>
-        <div class="gallery-label">Coco</div>
-      </div>
-      <div class="gallery-item" onclick="showModal('Rocky', 'Terrier mix, 1.5 years. Full of energy!')">
-        <img src="https://i.imgur.com/EpLqKPJ.jpg" alt="Rocky" loading="lazy"/>
-        <div class="gallery-label">Rocky</div>
-      </div>
-      <div class="gallery-item" onclick="showModal('Daisy', 'Golden Retriever, 3 years. Therapy dog in training.')">
-        <img src="https://i.imgur.com/vdVEKts.jpg" alt="Daisy" loading="lazy"/>
-        <div class="gallery-label">Daisy</div>
-      </div>
-      <!-- Continue for remaining images with random names -->
-      <div class="gallery-item" onclick="showModal('Charlie', 'Beagle, 4 years. Loves sniffing adventures.')">
-        <img src="https://i.imgur.com/o148Nvf.jpg" alt="Charlie" loading="lazy"/>
-        <div class="gallery-label">Charlie</div>
-      </div>
-      <div class="gallery-item" onclick="showModal('Lily', 'Siamese cat, 2 years. Very vocal and affectionate.')">
-        <img src="https://i.imgur.com/OQ7ST34.jpg" alt="Lily" loading="lazy"/>
-        <div class="gallery-label">Lily</div>
-      </div>
-      <div class="gallery-item" onclick="showModal('Toby', 'Pug mix, 6 years. Snoring champion.')">
-        <img src="https://i.imgur.com/KncySlQ.jpg" alt="Toby" loading="lazy"/>
-        <div class="gallery-label">Toby</div>
-      </div>
-      <div class="gallery-item" onclick="showModal('Nala', 'Calico cat, 1 year. Queen of zoomies.')">
-        <img src="https://i.imgur.com/ssgAd4Y.jpg" alt="Nala" loading="lazy"/>
-        <div class="gallery-label">Nala</div>
-      </div>
-      <div class="gallery-item" onclick="showModal('Leo', 'Husky mix, 3 years. Howls at everything.')">
-        <img src="https://i.imgur.com/ni7KUQv.jpg" alt="Leo" loading="lazy"/>
-        <div class="gallery-label">Leo</div>
-      </div>
-      <div class="gallery-item" onclick="showModal('Sasha', 'Mixed breed, 2.5 years. Sweet and shy.')">
-        <img src="https://i.imgur.com/u3rSxMb.jpg" alt="Sasha" loading="lazy"/>
-        <div class="gallery-label">Sasha</div>
-      </div>
-    </div>
-  </section>
-
-  <section class="cta" id="contact">
-    <div class="cta-content">
-      <h2>Join Us Today</h2>
-      <p>Visit, adopt, volunteer, or donate — help us give them a Home Furever.</p>
-      
-      <div class="actions-row">
-        <div class="action-card">
-          <a href="https://www.facebook.com/HomeFurEver" target="_blank">
-            <h3>DONATE</h3>
-            <p>Support our mission with a contribution</p>
-          </a>
-        </div>
-        <div class="action-card">
-          <a href="https://www.facebook.com/HomeFurEver" target="_blank">
-            <h3>SPONSOR</h3>
-            <p>Help cover food, meds & care</p>
-          </a>
-        </div>
-        <div class="action-card">
-          <a href="https://www.facebook.com/HomeFurEver" target="_blank">
-            <h3>ADOPT</h3>
-            <p>Open your heart & home</p>
-          </a>
-        </div>
-      </div>
-
-      <div class="contact-info">
-        <p><strong>For more information, contact us:</strong></p>
-        <ul>
-          <li>📞 Contact No.: 09604187432</li>
-          <li>✉️ Gmail: <a href="mailto:homefurever.nagpayong@gmail.com">homefurever.nagpayong@gmail.com</a></li>
-          <li>🐾 Official FB Page: <a href="https://www.facebook.com/HomeFurEver" target="_blank">HomeFurEver</a></li>
-        </ul>
-      </div>
-      
-      <a href="https://www.facebook.com/HomeFurEver" target="_blank" class="btn" style="background:white; color:var(--primary);">Message Us on Facebook</a>
-    </div>
-  </section>
-
-  <!-- Modal for animal info -->
-  <div id="animalModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal()">&times;</span>
-      <h2 id="animalName"></h2>
-      <p id="animalInfo"></p>
-    </div>
-  </div>
-
-  <footer>
-    <p>&copy; 2026 Home Furever – Nagpayong Stray Animal Protection</p>
-    <p>Every stray deserves love and a forever home. 💚🐾</p>
-  </footer>
-
-  <script>
-    function showModal(name, info) {
-      document.getElementById('animalName').innerText = name;
-      document.getElementById('animalInfo').innerText = info;
-      document.getElementById('animalModal').style.display = 'flex';
-    }
-    function closeModal() {
-      document.getElementById('animalModal').style.display = 'none';
-    }
-    // Close modal when clicking outside
-    window.onclick = function(event) {
-      if (event.target == document.getElementById('animalModal')) {
-        closeModal();
-      }
-    }
-  </script>
-
-</body>
-</html>
+      padding: 110px 30px;
+      border-radius: 36px;
+      margin: 70px auto;
+      box-shadow: 0 25px 70
